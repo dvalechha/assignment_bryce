@@ -1,0 +1,24 @@
+<h1>Books</h1>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Authors</th>
+    <th>Cover</th>
+  </tr>
+  <tr *ngFor="let book of books">
+    <td>{{ book.id }}</td>
+    <td>{{ book.volumeInfo.title }}</td>
+    <td>{{ book.volumeInfo.authors.join(",") }}</td>
+    <td>
+      <a
+        *ngIf="book.volumeInfo.imageLinks?.thumbnail"
+        [href]="book.volumeInfo.imageLinks.thumbnail"
+        target="_blank"
+        >Thumbnail</a
+      >
+    </td>
+  </tr>
+</table>
+
+<button (click)="back()">Go Back</button>
